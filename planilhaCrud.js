@@ -75,17 +75,17 @@ function atualizarUsuario() {
 }
 
 function deletarUsuario() {
-    const data = lerPlanilha();
-    const id = parseInt(readline.question('Digite o ID do usuário a ser atualizado: '))
+    let data = lerPlanilha();
+    const id = parseInt(readline.question("Digite o ID do usuário a ser deletado: "));
 
-    const novoData = data.filter(user => user.ID === id);
+    const novoData = data.filter(user => user.ID !== id);
     if (novoData.length === data.length) {
-        console.log('Usuário não encontrado')
-        return ;
+        console.log("Usuário não encontrado!\n");
+        return;
     }
 
     salvarPlanilha(novoData);
-    console.log('Usuário deletado com sucesso!')
+    console.log("Usuário deletado com sucesso!\n");
 }
 
 function menu() {
